@@ -17,6 +17,6 @@ import { EditComponent } from './edit.component';
     ])
   ],
   declarations: [EditComponent],
-  exports: [EditComponent],
+  exports: [EditComponent]
 })
 export class PassengerFeatureEditModule {}

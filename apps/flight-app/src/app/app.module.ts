@@ -26,15 +26,9 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 
     FlightLibModule.forRoot(),
     SharedModule.forRoot(),
-    RouterModule.forRoot(APP_ROUTES),
+    RouterModule.forRoot(APP_ROUTES)
   ],
-  declarations: [
-    AppComponent,
-    SidebarComponent,
-    NavbarComponent,
-    HomeComponent,
-    BasketComponent
-  ],
+  declarations: [AppComponent, SidebarComponent, NavbarComponent, HomeComponent, BasketComponent],
   providers: [],
   bootstrap: [AppComponent]
 })

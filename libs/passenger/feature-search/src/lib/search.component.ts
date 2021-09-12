@@ -12,17 +12,13 @@ export class SearchComponent {
   passengerList$ = this.searchFacade.passengerList$;
   selectedPassenger: Passenger;
 
-  constructor(private searchFacade: SearchFacade) {
-  }
+  constructor(private searchFacade: SearchFacade) {}
 
   load(): void {
     this.searchFacade.load(this.name, this.firstname);
-  };
+  }
 
   toggleSelection(p: Passenger) {
-    this.selectedPassenger =
-      this.selectedPassenger === p ?
-      null :
-      p;
+    this.selectedPassenger = this.selectedPassenger === p ? null : p;
   }
 }

@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { PassengerComponent } from './passenger.component';
 
-
 const routes: Routes = [
   {
     path: '',
@@ -16,24 +15,18 @@ const routes: Routes = [
       },
       {
         path: 'search',
-        loadChildren: () => import('@flight-workspace/passenger/feature-search')
-          .then(esm => esm.PassengerFeatureSearchModule)
+        loadChildren: () => import('@flight-workspace/passenger/feature-search').then((esm) => esm.PassengerFeatureSearchModule)
       },
       {
         path: 'edit/:id',
-        loadChildren: () => import('@flight-workspace/passenger/feature-edit')
-          .then(esm => esm.PassengerFeatureEditModule)
+        loadChildren: () => import('@flight-workspace/passenger/feature-edit').then((esm) => esm.PassengerFeatureEditModule)
       }
     ]
   }
 ];
 
-
 @NgModule({
   declarations: [PassengerComponent],
-  imports: [
-    CommonModule,
-    RouterModule.forChild(routes)
-  ]
+  imports: [CommonModule, RouterModule.forChild(routes)]
 })
-export class PassengerModule { }
+export class PassengerModule {}

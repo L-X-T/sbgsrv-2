@@ -21,6 +21,6 @@ import { PassengerDomainModule } from '@flight-workspace/passenger/domain';
     PassengerDomainModule
   ],
   declarations: [SearchComponent],
-  exports: [SearchComponent],
+  exports: [SearchComponent]
 })
 export class PassengerFeatureSearchModule {}

@@ -4,6 +4,4 @@ import { Component } from '@angular/core';
   selector: 'app-demo',
   template: `<h1>Hello World!</h1>`
 })
-export class DemoComponent {
-
-}
+export class DemoComponent {}

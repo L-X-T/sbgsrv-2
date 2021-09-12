@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-dashboard-tile',
@@ -10,7 +10,7 @@ export class DashboardTileComponent implements OnInit {
   @Input() c: number;
 
   // data for chart
-  data: { name: string, value: number }[] = [];
+  data: { name: string; value: number }[] = [];
 
   ngOnInit() {
     this.data = [

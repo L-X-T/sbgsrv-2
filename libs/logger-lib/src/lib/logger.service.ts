@@ -6,9 +6,7 @@ import { LoggerConfig } from './logger.config';
   providedIn: 'root'
 })
 export class LoggerService {
-
-  constructor(@Optional() private config: LoggerConfig) {
-  }
+  constructor(@Optional() private config: LoggerConfig) {}
 
   debug(message: string): void {
     if (!this.config.enableDebug) return;

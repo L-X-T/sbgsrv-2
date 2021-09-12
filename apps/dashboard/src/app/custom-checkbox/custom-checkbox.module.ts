@@ -3,16 +3,13 @@ import { CustomCheckboxElement } from './custom-checkbox';
 import { CustomCheckboxDirective } from './custom-checkbox.directive';
 
 @NgModule({
-    imports: [],
-    declarations: [CustomCheckboxDirective],
-    exports: [CustomCheckboxDirective],
-    providers: [],
+  imports: [],
+  declarations: [CustomCheckboxDirective],
+  exports: [CustomCheckboxDirective],
+  providers: []
 })
-export class CustomCheckboxModule { 
-
-    constructor() {
-        customElements.define('custom-checkbox', CustomCheckboxElement);
-    }
-
+export class CustomCheckboxModule {
+  constructor() {
+    customElements.define('custom-checkbox', CustomCheckboxElement);
+  }
 }
-

@@ -1,4 +1,4 @@
-import { Component, OnInit} from '@angular/core';
+import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { EditFacade } from '@flight-workspace/passenger/domain';
 
@@ -10,14 +10,7 @@ import { EditFacade } from '@flight-workspace/passenger/domain';
 export class EditComponent {
   id: number;
 
-  constructor(
-    private editFacade: EditFacade,
-    private route: ActivatedRoute) {
-
-    this.route.paramMap
-      .subscribe(
-        params => this.id = +params.get('id')
-      );
+  constructor(private editFacade: EditFacade, private route: ActivatedRoute) {
+    this.route.paramMap.subscribe((params) => (this.id = +params.get('id')));
   }
 }
-

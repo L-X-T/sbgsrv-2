@@ -1,19 +1,17 @@
 import { CommonModule } from '@angular/common';
 import { DemoComponent } from './demo.component';
-import { NgModule, Injector } from '@angular/core';
+import { Injector, NgModule } from '@angular/core';
 import { createCustomElement } from '@angular/elements';
 
 @NgModule({
-    imports: [CommonModule],
-    exports: [DemoComponent],
-    declarations: [DemoComponent],
-    entryComponents: [DemoComponent]
+  imports: [CommonModule],
+  exports: [DemoComponent],
+  declarations: [DemoComponent],
+  entryComponents: [DemoComponent]
 })
-export class DemoModule { 
-
-    constructor(injector: Injector) {
-        const demoElm = createCustomElement(DemoComponent, {injector});
-        customElements.define('my-demo', demoElm);
-    }
-
+export class DemoModule {
+  constructor(injector: Injector) {
+    const demoElm = createCustomElement(DemoComponent, { injector });
+    customElements.define('my-demo', demoElm);
+  }
 }

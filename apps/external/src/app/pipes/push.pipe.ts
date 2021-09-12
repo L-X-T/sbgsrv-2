@@ -2,8 +2,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 
-import {ChangeDetectorRef, EventEmitter, OnDestroy, Pipe, PipeTransform, WrappedValue} from '@angular/core';
-import {Observable, SubscriptionLike} from 'rxjs';
+import { ChangeDetectorRef, EventEmitter, OnDestroy, Pipe, PipeTransform, WrappedValue } from '@angular/core';
+import { Observable, SubscriptionLike } from 'rxjs';
 
 /**
  * @ngModule CommonModule
@@ -18,13 +18,13 @@ import {Observable, SubscriptionLike} from 'rxjs';
  *
  * @experimental
  */
-@Pipe({name: 'push', pure: false})
+@Pipe({ name: 'push', pure: false })
 export class PushPipe implements OnDestroy, PipeTransform {
   private _latestValue: any = null;
   private _latestReturnedValue: any = null;
 
-  private _subscription: SubscriptionLike|null = null;
-  private _obj: Observable<any>|EventEmitter<any>|null = null;
+  private _subscription: SubscriptionLike | null = null;
+  private _obj: Observable<any> | EventEmitter<any> | null = null;
 
   constructor(private _ref: ChangeDetectorRef) {}
 
@@ -36,13 +36,12 @@ export class PushPipe implements OnDestroy, PipeTransform {
 
   transform<T>(obj: null): null;
   transform<T>(obj: undefined): undefined;
-  transform<T>(obj: Observable<T>|null|undefined): T|null;
-  transform(obj: Observable<any>|null|undefined): any {
+  transform<T>(obj: Observable<T> | null | undefined): T | null;
+  transform(obj: Observable<any> | null | undefined): any {
     if (!this._obj) {
       if (obj) {
         this._obj = obj;
-        this._subscription =
-            obj.subscribe({next: (value: Object) => this._updateLatestValue(obj, value)});
+        this._subscription = obj.subscribe({ next: (value: Object) => this._updateLatestValue(obj, value) });
       }
       this._latestReturnedValue = this._latestValue;
       return this._latestValue;

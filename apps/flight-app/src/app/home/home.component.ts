@@ -13,13 +13,14 @@ import { map } from 'rxjs/operators';
 export class HomeComponent implements OnInit {
   expertMode = false;
   needsLogin$: Observable<boolean>;
+
+  constructor(private route: ActivatedRoute) {}
+
   _userName = '';
 
   get userName(): string {
     return this._userName;
   }
-
-  constructor(private route: ActivatedRoute) {}
 
   // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
   changed($event): void {
@@ -29,9 +30,7 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.needsLogin$ = this.route.params.pipe(
-      map(params => !!params['needsLogin'])
-    );
+    this.needsLogin$ = this.route.params.pipe(map((params) => !!params['needsLogin']));
   }
 
   login(): void {

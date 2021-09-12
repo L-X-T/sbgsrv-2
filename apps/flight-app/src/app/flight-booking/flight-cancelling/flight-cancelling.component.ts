@@ -1,5 +1,5 @@
 /* eslint-disable no-restricted-syntax */
-import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FlightCancellingService } from './flight-cancelling.service';
 
 @Component({
@@ -8,11 +8,10 @@ import { FlightCancellingService } from './flight-cancelling.service';
   styleUrls: ['./flight-cancelling.component.css']
 })
 export class FlightCancellingComponent implements OnInit {
-
   @Input() flightId: string;
   @Output() closed = new EventEmitter();
 
-  constructor(private service: FlightCancellingService) { }
+  constructor(private service: FlightCancellingService) {}
 
   ngOnInit(): void {
     console.debug('init');
@@ -22,5 +21,4 @@ export class FlightCancellingComponent implements OnInit {
     console.debug('remove');
     this.closed.next();
   }
-
 }

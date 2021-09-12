@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { ReplaySubject } from 'rxjs';
 
 export interface Data {
@@ -15,13 +15,10 @@ export interface Data {
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ExternalDashboardTileComponent implements OnInit {
-
+  data$ = new ReplaySubject<Data>(1);
   private src = 0;
 
-  data$ = new ReplaySubject<Data>(1);
-
-  constructor(private http: HttpClient) {
-  }
+  constructor(private http: HttpClient) {}
 
   ngOnInit(): void {
     this.more();
@@ -32,11 +29,6 @@ export class ExternalDashboardTileComponent implements OnInit {
     if (this.src > 3) this.src = 1;
 
     // publish further data
-    this.http
-        .get<Data>(`/assets/stats-${this.src}.json`)
-        .subscribe(data => this.data$.next(data));
+    this.http.get<Data>(`/assets/stats-${this.src}.json`).subscribe((data) => this.data$.next(data));
   }
-
 }
-
-

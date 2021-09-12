@@ -4,7 +4,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 
-
 const routes: Routes = [
   {
     path: '',
@@ -13,20 +12,14 @@ const routes: Routes = [
   },
   {
     path: 'passenger',
-    loadChildren: () => import('./passenger/passenger.module')
-      .then(esm => esm.PassengerModule)
+    loadChildren: () => import('./passenger/passenger.module').then((esm) => esm.PassengerModule)
   }
 ];
 
-
 @NgModule({
   declarations: [AppComponent],
-  imports: [
-    BrowserModule,
-    HttpClientModule,
-    RouterModule.forRoot(routes)
-  ],
+  imports: [BrowserModule, HttpClientModule, RouterModule.forRoot(routes)],
   providers: [],
-  bootstrap: [AppComponent],
+  bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

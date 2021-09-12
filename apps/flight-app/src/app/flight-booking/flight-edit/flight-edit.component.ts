@@ -1,5 +1,5 @@
-import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-flight-edit',
@@ -10,14 +10,12 @@ export class FlightEditComponent implements OnInit {
   showDetails: string;
   showWarning = false;
 
-  constructor(private route: ActivatedRoute) {
-  }
+  constructor(private route: ActivatedRoute) {}
 
   ngOnInit(): void {
-    this.route.params.subscribe(p => {
+    this.route.params.subscribe((p) => {
       this.id = p['id'];
       this.showDetails = p['showDetails'];
     });
   }
-
 }

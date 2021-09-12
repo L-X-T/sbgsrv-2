@@ -1,4 +1,4 @@
-import {Component, ViewEncapsulation} from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'app-passenger-search',
@@ -6,6 +6,4 @@ import {Component, ViewEncapsulation} from '@angular/core';
   styleUrls: ['./passenger-search.component.css'],
   encapsulation: ViewEncapsulation.None
 })
-export class PassengerSearchComponent {
-
-}
+export class PassengerSearchComponent {}

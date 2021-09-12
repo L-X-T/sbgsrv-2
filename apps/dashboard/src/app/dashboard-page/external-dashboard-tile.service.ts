@@ -4,7 +4,6 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class ExternalDashboardTileService {
-
   loaded = false;
 
   load(): void {
@@ -18,5 +17,4 @@ export class ExternalDashboardTileService {
     // HINT: The goal is to dynamically add this to the end of the body:
     //         <script src="..."></script>
   }
-
 }

@@ -8,13 +8,11 @@ import { FlightLibModule } from '@flight-workspace/flight-lib';
 @NgModule({
   imports: [
     BrowserModule,
-    FlightLibModule,
+    FlightLibModule
     // DashboardLibModule,
   ],
-  declarations: [
-    AppComponent
-  ],
+  declarations: [AppComponent],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
