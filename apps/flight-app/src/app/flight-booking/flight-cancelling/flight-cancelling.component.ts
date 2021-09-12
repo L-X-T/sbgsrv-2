@@ -14,7 +14,7 @@ export class FlightCancellingComponent implements OnInit {
 
   constructor(private service: FlightCancellingService) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
     console.debug('init');
   }
 

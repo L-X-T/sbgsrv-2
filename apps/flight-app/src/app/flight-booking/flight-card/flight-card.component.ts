@@ -29,7 +29,7 @@ export class FlightCardComponent implements OnInit, OnChanges, OnDestroy {
   constructor(private element: ElementRef, private zone: NgZone) {
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -38,17 +38,17 @@ export class FlightCardComponent implements OnInit, OnChanges, OnDestroy {
   ngOnDestroy(): void {
   }
 
-  select() {
+  select(): void {
     this.selected = true;
     this.selectedChange.next(true);
   }
 
-  deselect() {
+  deselect(): void {
     this.selected = false;
     this.selectedChange.next(false);
   }
 
-  blink() {
+  blink(): void {
     // Dirty Hack used to visualize the change detector
     // let originalColor = this.element.nativeElement.firstChild.style.backgroundColor;
     this.element.nativeElement.firstChild.style.backgroundColor = 'crimson';

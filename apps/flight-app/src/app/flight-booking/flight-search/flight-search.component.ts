@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-empty-function */
 /* eslint-disable @angular-eslint/no-empty-lifecycle-method */
 import {Component, OnInit} from '@angular/core';
-import {FlightService} from '@flight-workspace/flight-lib';
+import { Flight, FlightService } from '@flight-workspace/flight-lib';
 
 @Component({
   selector: 'flight-search',
@@ -14,7 +14,7 @@ export class FlightSearchComponent implements OnInit {
   to = 'Graz'; // in Austria
   urgent = false;
 
-  get flights() {
+  get flights(): Flight[] {
     return this.flightService.flights;
   }
 
@@ -28,7 +28,7 @@ export class FlightSearchComponent implements OnInit {
     private flightService: FlightService) {
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
   }
 
   search(): void {

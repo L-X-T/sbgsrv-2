@@ -9,7 +9,7 @@ export class NavbarComponent {
 
   private sidebarVisible = false;
 
-  sidebarToggle() {
+  sidebarToggle(): void {
     const body = document.getElementsByTagName('body')[0];
 
     if (this.sidebarVisible === false) {

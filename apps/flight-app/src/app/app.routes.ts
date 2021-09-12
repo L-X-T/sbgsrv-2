@@ -1,4 +1,4 @@
-import { ExtraOptions, Routes } from '@angular/router';
+import { Routes } from '@angular/router';
 import { BasketComponent } from './basket/basket.component';
 import { HomeComponent } from './home/home.component';
 

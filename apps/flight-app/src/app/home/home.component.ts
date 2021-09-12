@@ -21,13 +21,14 @@ export class HomeComponent implements OnInit {
 
   constructor(private route: ActivatedRoute) {}
 
+  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
   changed($event): void {
     console.debug('$event.detail ', $event.target.detail);
 
     this.expertMode = $event.detail;
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.needsLogin$ = this.route.params.pipe(
       map(params => !!params['needsLogin'])
     );
