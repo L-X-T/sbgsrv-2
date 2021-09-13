@@ -6,6 +6,7 @@ import { Store } from '@ngrx/store';
 import { FlightBookingAppState } from '../+state/flight-booking.reducer';
 import { flightsLoaded, updateFlight } from '../+state/flight-booking.actions';
 import { take } from 'rxjs/operators';
+import { selectFilteredFlights } from '../+state/flight-booking.selectors';
 
 @Component({
   selector: 'flight-search',
@@ -22,7 +23,7 @@ export class FlightSearchComponent implements OnInit {
     5: true
   };
 
-  flights$ = this.store.select((s) => s.flightBooking.flights);
+  flights$ = this.store.select(selectFilteredFlights);
 
   constructor(private flightService: FlightService, private store: Store<FlightBookingAppState>) {}
 

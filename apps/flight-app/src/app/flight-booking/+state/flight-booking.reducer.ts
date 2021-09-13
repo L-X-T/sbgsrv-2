@@ -10,10 +10,12 @@ export interface FlightBookingAppState {
 
 export interface State {
   flights: Flight[];
+  negativeList: number[];
 }
 
 export const initialState: State = {
-  flights: []
+  flights: [],
+  negativeList: [3]
 };
 
 export const reducer = createReducer(
