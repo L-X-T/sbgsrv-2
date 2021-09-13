@@ -29,10 +29,12 @@
           Search
         </button>
 
-        <button *ngIf="flights.length > 0" class="btn btn-default"
-          (click)="delay()">
-          Delay 1st Flight
-        </button>
+        <ng-container *ngIf="flights$ | async as flights">
+          <button *ngIf="flights.length > 0" class="btn btn-default"
+                  (click)="delay()">
+            Delay 1st Flight
+          </button>
+        </ng-container>
 
         <ng-container *ngIf="flights$ | async as flights">
           <div *ngIf="flights?.length > 0">
