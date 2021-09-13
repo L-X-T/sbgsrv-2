@@ -4,7 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { Flight, FlightService } from '@flight-workspace/flight-lib';
 import { Store } from '@ngrx/store';
 import { FlightBookingAppState } from '../+state/flight-booking.reducer';
-import { flightsLoaded, updateFlight } from '../+state/flight-booking.actions';
+import { loadFlights, updateFlight } from '../+state/flight-booking.actions';
 import { take } from 'rxjs/operators';
 import { selectFlightsWithProps } from '../+state/flight-booking.selectors';
 
@@ -38,14 +38,22 @@ export class FlightSearchComponent implements OnInit {
 
     // this.flightService.load(this.from, this.to, this.urgent);
 
-    this.flightService.find(this.from, this.to, this.urgent).subscribe({
+    /*this.flightService.find(this.from, this.to, this.urgent).subscribe({
       next: (flights) => {
         this.store.dispatch(flightsLoaded({ flights }));
       },
       error: (error) => {
         console.error('error', error);
       }
-    });
+    });*/
+
+    this.store.dispatch(
+      loadFlights({
+        from: this.from,
+        to: this.to,
+        urgent: this.urgent
+      })
+    );
   }
 
   delay(): void {
