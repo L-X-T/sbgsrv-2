@@ -2,6 +2,9 @@
 /* eslint-disable @angular-eslint/no-empty-lifecycle-method */
 import { Component, OnInit } from '@angular/core';
 import { Flight, FlightService } from '@flight-workspace/flight-lib';
+import { Store } from '@ngrx/store';
+import { FlightBookingAppState } from '../+state/flight-booking.reducer';
+import { flightsLoaded } from '../+state/flight-booking.actions';
 
 @Component({
   selector: 'flight-search',
@@ -18,7 +21,9 @@ export class FlightSearchComponent implements OnInit {
     5: true
   };
 
-  constructor(private flightService: FlightService) {}
+  flights$ = this.store.select((s) => s.flightBooking.flights);
+
+  constructor(private flightService: FlightService, private store: Store<FlightBookingAppState>) {}
 
   get flights(): Flight[] {
     return this.flightService.flights;
@@ -29,7 +34,16 @@ export class FlightSearchComponent implements OnInit {
   search(): void {
     if (!this.from || !this.to) return;
 
-    this.flightService.load(this.from, this.to, this.urgent);
+    // this.flightService.load(this.from, this.to, this.urgent);
+
+    this.flightService.find(this.from, this.to, this.urgent).subscribe({
+      next: (flights) => {
+        this.store.dispatch(flightsLoaded({ flights }));
+      },
+      error: (error) => {
+        console.error('error', error);
+      }
+    });
   }
 
   delay(): void {
