@@ -24,7 +24,7 @@ module.exports = {
   plugins: [
     new ModuleFederationPlugin({
       remotes: {
-        passenger: 'passenger@http://localhost:3000/remoteEntry.js'
+        // passenger: 'passenger@http://localhost:3000/remoteEntry.js'
       },
 
       shared: share({

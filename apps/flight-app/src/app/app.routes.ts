@@ -1,6 +1,8 @@
 import { Routes } from '@angular/router';
 import { BasketComponent } from './basket/basket.component';
 import { HomeComponent } from './home/home.component';
+import { loadRemoteModule } from '@angular-architects/module-federation';
+import { PassengerMf } from '../mf';
 
 export const APP_ROUTES: Routes = [
   {
@@ -19,7 +21,12 @@ export const APP_ROUTES: Routes = [
   },
   {
     path: 'mf-passenger',
-    loadChildren: () => import('passenger/module').then((m) => m.PassengerModule)
+    loadChildren: () =>
+      loadRemoteModule<PassengerMf>({
+        remoteEntry: 'http://localhost:3000/remoteEntry.js',
+        remoteName: 'passenger',
+        exposedModule: './module'
+      }).then((esm) => esm.PassengerModule)
   },
   {
     path: '**',
