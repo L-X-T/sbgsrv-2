@@ -47,6 +47,9 @@
       ],
       "@flight-workspace/passenger/feature-search": [
         "libs/passenger/feature-search/src/index.ts"
+      ],
+      "@flight-workspace/shared/auth-lib": [
+        "libs/shared/auth-lib/src/index.ts"
       ]
     }
   },

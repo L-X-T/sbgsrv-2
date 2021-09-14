@@ -178,6 +178,12 @@
         "domain:passenger",
         "type:feature"
       ]
+    },
+    "shared-auth-lib": {
+      "tags": [
+        "domain:shared",
+        "type:util"
+      ]
     }
   }
 }
