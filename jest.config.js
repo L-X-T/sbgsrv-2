@@ -13,6 +13,7 @@ module.exports = {
     '<rootDir>/libs/passenger/feature-edit',
     '<rootDir>/libs/luggage/domain',
     '<rootDir>/apps/luggage',
-    '<rootDir>/libs/luggage/feature-checkin'
+    '<rootDir>/libs/luggage/feature-checkin',
+    '<rootDir>/libs/luggage/feature-report-loss'
   ]
 };

@@ -8,10 +8,11 @@ import { environment } from '../environments/environment';
 import { EffectsModule } from '@ngrx/effects';
 import { LuggageFeatureCheckinModule } from '@flight-workspace/luggage/feature-checkin';
 import { HttpClientModule } from '@angular/common/http';
+import { LuggageFeatureReportLossModule } from '@flight-workspace/luggage/feature-report-loss';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, StoreModule.forRoot({}), !environment.production ? StoreDevtoolsModule.instrument() : [], EffectsModule.forRoot(), LuggageFeatureCheckinModule, HttpClientModule],
+  imports: [BrowserModule, StoreModule.forRoot({}), !environment.production ? StoreDevtoolsModule.instrument() : [], EffectsModule.forRoot(), LuggageFeatureCheckinModule, HttpClientModule, LuggageFeatureReportLossModule],
   providers: [],
   bootstrap: [AppComponent]
 })

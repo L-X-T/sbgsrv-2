@@ -136,6 +136,12 @@
         "type:feature"
       ]
     },
+    "luggage-feature-report-loss": {
+      "tags": [
+        "domain:luggage",
+        "type:feature"
+      ]
+    },
     "passenger": {
       "tags": [
         "domain:passenger",
