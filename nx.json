@@ -109,7 +109,8 @@
     },
     "logger-lib": {
       "tags": [
-        "domain:shared"
+        "domain:shared",
+        "type:util"
       ]
     },
     "luggage": {
