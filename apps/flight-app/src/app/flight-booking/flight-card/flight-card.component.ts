@@ -1,13 +1,25 @@
 /* eslint-disable @typescript-eslint/no-empty-function */
 /* eslint-disable @angular-eslint/no-empty-lifecycle-method */
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { Component, ElementRef, EventEmitter, Input, NgZone, OnChanges, OnDestroy, OnInit, Output, SimpleChanges } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  ElementRef,
+  EventEmitter,
+  Input,
+  NgZone,
+  OnChanges,
+  OnDestroy,
+  OnInit,
+  Output,
+  SimpleChanges
+} from '@angular/core';
 import { Flight } from '@flight-workspace/flight-lib';
 
 @Component({
   selector: 'flight-card',
-  templateUrl: './flight-card.component.html'
-  // changeDetection: ChangeDetectionStrategy.OnPush
+  templateUrl: './flight-card.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class FlightCardComponent implements OnInit, OnChanges, OnDestroy {
   @Input() item: Flight;
