@@ -11,5 +11,8 @@ module.exports = {
     '<rootDir>/apps/passenger',
     '<rootDir>/libs/passenger/feature-search',
     '<rootDir>/libs/passenger/feature-edit',
-  ],
+    '<rootDir>/libs/luggage/domain',
+    '<rootDir>/apps/luggage',
+    '<rootDir>/libs/luggage/feature-checkin'
+  ]
 };

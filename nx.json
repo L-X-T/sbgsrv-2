@@ -18,7 +18,12 @@
     "default": {
       "runner": "@nrwl/workspace/tasks-runners/default",
       "options": {
-        "cacheableOperations": ["build", "lint", "test", "e2e"],
+        "cacheableOperations": [
+          "build",
+          "lint",
+          "test",
+          "e2e"
+        ],
         "--cacheDirectory": "c:\\temp\\cache"
       }
     }
@@ -27,64 +32,139 @@
     "default": {
       "runner": "./tools/task-runners/custom-task-runner",
       "options": {
-        "cacheableOperations": ["build", "lint", "test", "e2e"],
+        "cacheableOperations": [
+          "build",
+          "lint",
+          "test",
+          "e2e"
+        ],
         "remoteDirectory": "c:\\temp\\remote-cache"
       }
     }
   },
   "projects": {
-    "flight-app-e2e": {
-      "tags": ["e2e"],
-      "implicitDependencies": ["flight-app"]
-    },
-    "flight-admin-e2e": {
-      "tags": ["e2e"],
-      "implicitDependencies": ["flight-admin"]
+    "dashboard": {
+      "tags": [
+        "domain:dashboard"
+      ]
     },
     "dashboard-e2e": {
-      "tags": ["e2e"],
-      "implicitDependencies": ["dashboard"]
-    },
-    "external-e2e": {
-      "tags": ["e2e"],
-      "implicitDependencies": ["external"]
-    },
-    "flight-app": {
-      "tags": ["domain:flights"]
-    },
-    "flight-admin": {
-      "tags": ["domain:flights"]
-    },
-    "flight-lib": {
-      "tags": ["domain:flights", "type:domain-logic"]
-    },
-    "logger-lib": {
-      "tags": ["domain:shared"]
-    },
-    "dashboard": {
-      "tags": ["domain:dashboard"]
+      "tags": [
+        "e2e"
+      ],
+      "implicitDependencies": [
+        "dashboard"
+      ]
     },
     "dashboard-lib": {
-      "tags": ["domain:dashboard", "type:domain-logic"]
+      "tags": [
+        "domain:dashboard",
+        "type:domain-logic"
+      ]
     },
     "external": {
-      "tags": ["domain:external"]
+      "tags": [
+        "domain:external"
+      ]
     },
-    "passenger-domain": {
-      "tags": ["domain:passenger", "type:domain-logic"]
+    "external-e2e": {
+      "tags": [
+        "e2e"
+      ],
+      "implicitDependencies": [
+        "external"
+      ]
+    },
+    "flight-admin": {
+      "tags": [
+        "domain:flights"
+      ]
+    },
+    "flight-admin-e2e": {
+      "tags": [
+        "e2e"
+      ],
+      "implicitDependencies": [
+        "flight-admin"
+      ]
+    },
+    "flight-app": {
+      "tags": [
+        "domain:flights"
+      ]
+    },
+    "flight-app-e2e": {
+      "tags": [
+        "e2e"
+      ],
+      "implicitDependencies": [
+        "flight-app"
+      ]
+    },
+    "flight-lib": {
+      "tags": [
+        "domain:flights",
+        "type:domain-logic"
+      ]
+    },
+    "logger-lib": {
+      "tags": [
+        "domain:shared"
+      ]
+    },
+    "luggage": {
+      "tags": [
+        "domain:apps/luggage",
+        "type:app"
+      ]
+    },
+    "luggage-domain": {
+      "tags": [
+        "domain:luggage",
+        "type:domain-logic"
+      ]
+    },
+    "luggage-e2e": {
+      "tags": [],
+      "implicitDependencies": [
+        "luggage"
+      ]
+    },
+    "luggage-feature-checkin": {
+      "tags": [
+        "domain:luggage",
+        "type:feature"
+      ]
     },
     "passenger": {
-      "tags": ["domain:passenger", "type:app"]
+      "tags": [
+        "domain:passenger",
+        "type:app"
+      ]
+    },
+    "passenger-domain": {
+      "tags": [
+        "domain:passenger",
+        "type:domain-logic"
+      ]
     },
     "passenger-e2e": {
       "tags": [],
-      "implicitDependencies": ["passenger"]
-    },
-    "passenger-feature-search": {
-      "tags": ["domain:passenger", "type:feature"]
+      "implicitDependencies": [
+        "passenger"
+      ]
     },
     "passenger-feature-edit": {
-      "tags": ["domain:passenger", "type:feature"]
+      "tags": [
+        "domain:passenger",
+        "type:feature"
+      ]
+    },
+    "passenger-feature-search": {
+      "tags": [
+        "domain:passenger",
+        "type:feature"
+      ]
     }
   }
 }
