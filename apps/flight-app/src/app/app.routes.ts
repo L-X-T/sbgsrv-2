@@ -18,6 +18,10 @@ export const APP_ROUTES: Routes = [
     outlet: 'aux'
   },
   {
+    path: 'mf-passenger',
+    loadChildren: () => import('passenger/module').then((m) => m.PassengerModule)
+  },
+  {
     path: '**',
     redirectTo: 'home'
   }
