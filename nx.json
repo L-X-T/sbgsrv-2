@@ -142,6 +142,12 @@
         "type:feature"
       ]
     },
+    "luggage-ui-card": {
+      "tags": [
+        "domain:luggage",
+        "type:ui"
+      ]
+    },
     "passenger": {
       "tags": [
         "domain:passenger",
