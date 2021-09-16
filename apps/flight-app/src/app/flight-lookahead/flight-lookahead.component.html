@@ -9,6 +9,8 @@
       <input [formControl]="control" class="form-control">
     </div>
 
+    <div [ngStyle]="{ 'background-color' : online ? 'green' : 'red' }">Online: {{ online }}</div>
+
     <div *ngIf="loading">Loading ...</div>
     <div *ngIf="!loading && (diff$ | async) as diff">Differenz: {{ diff }}</div>
 
