@@ -5,8 +5,13 @@
 
   <div class="content">
     <div class="control-group">
-      <label>Stadt</label>
-      <input [formControl]="control" class="form-control">
+      <label>From</label>
+      <input [formControl]="fromControl" class="form-control">
+    </div>
+
+    <div class="control-group">
+      <label>To</label>
+      <input [formControl]="toControl" class="form-control">
     </div>
 
     <div [ngStyle]="{ 'background-color' : online ? 'green' : 'red' }">Online: {{ online }}</div>
