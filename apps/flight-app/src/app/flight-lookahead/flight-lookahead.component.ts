@@ -3,7 +3,7 @@ import { FormControl } from '@angular/forms';
 import { Flight } from '@flight-workspace/flight-lib';
 import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
-import { debounceTime, distinctUntilChanged, filter, switchMap, tap } from 'rxjs/operators';
+import { debounceTime, distinctUntilChanged, filter, map, pairwise, switchMap, tap } from 'rxjs/operators';
 
 @Component({
   selector: 'flight-workspace-flight-lookahead',
@@ -13,6 +13,7 @@ import { debounceTime, distinctUntilChanged, filter, switchMap, tap } from 'rxjs
 export class FlightLookaheadComponent implements OnInit {
   control: FormControl;
   flights$: Observable<Flight[]>;
+  diff$: Observable<number>;
   loading: boolean;
 
   constructor(private http: HttpClient) {}
@@ -27,6 +28,11 @@ export class FlightLookaheadComponent implements OnInit {
       tap((input) => (this.loading = true)),
       switchMap((input) => this.load(input)),
       tap((v) => (this.loading = false))
+    );
+
+    this.diff$ = this.flights$.pipe(
+      pairwise(),
+      map(([a, b]) => b.length - a.length)
     );
   }
 
