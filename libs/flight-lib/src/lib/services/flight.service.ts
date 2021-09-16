@@ -10,6 +10,7 @@ import { Flight } from '../models/flight';
 export class FlightService {
   flights: Flight[] = [];
   baseUrl = `http://www.angular.at/api`;
+  // baseUrl = `https://demo.angulararchitects.io/api`;
   // baseUrl = `http://localhost:3000`;
 
   reqDelay = 1000;
