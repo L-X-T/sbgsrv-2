@@ -7,5 +7,11 @@ import { Component, ViewEncapsulation } from '@angular/core';
   encapsulation: ViewEncapsulation.None
 })
 export class HomeComponent {
-  value1 = true;
+  checked = true;
+
+  changed(event: CustomEvent): void {
+    // eslint-disable-next-line no-restricted-syntax
+    console.debug('event', event);
+    this.checked = event.detail;
+  }
 }
