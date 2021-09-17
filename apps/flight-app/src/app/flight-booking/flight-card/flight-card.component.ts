@@ -18,7 +18,8 @@ import {
 import { Flight } from '@flight-workspace/flight-lib';
 import { LangChangeEvent, TranslateService } from '@ngx-translate/core';
 import { select } from '@ngrx/store';
-import { Subscription } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'flight-card',
@@ -33,6 +34,8 @@ export class FlightCardComponent implements OnInit, OnChanges, OnDestroy {
   locale = 'de'; // caution: for the sake of simplicity we use language as locale here
   private localeSubscription: Subscription;
 
+  langeChange$: Observable<string>;
+
   constructor(
     private changeDetectorRef: ChangeDetectorRef,
     private element: ElementRef,
@@ -41,10 +44,12 @@ export class FlightCardComponent implements OnInit, OnChanges, OnDestroy {
   ) {}
 
   ngOnInit(): void {
-    this.localeSubscription = this.translateService.onLangChange.subscribe((langChangeEvent: LangChangeEvent) => {
+    /*this.localeSubscription = this.translateService.onLangChange.subscribe((langChangeEvent: LangChangeEvent) => {
       this.locale = langChangeEvent.lang;
       this.changeDetectorRef.detectChanges();
-    });
+    });*/
+
+    this.langeChange$ = this.translateService.onLangChange.pipe(map((langChangeEvent: LangChangeEvent) => langChangeEvent.lang));
   }
 
   ngOnChanges(changes: SimpleChanges): void {}
