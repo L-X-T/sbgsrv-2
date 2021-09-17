@@ -3,6 +3,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import {
   ChangeDetectionStrategy,
+  ChangeDetectorRef,
   Component,
   ElementRef,
   EventEmitter,
@@ -15,6 +16,9 @@ import {
   SimpleChanges
 } from '@angular/core';
 import { Flight } from '@flight-workspace/flight-lib';
+import { LangChangeEvent, TranslateService } from '@ngx-translate/core';
+import { select } from '@ngrx/store';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'flight-card',
@@ -26,13 +30,30 @@ export class FlightCardComponent implements OnInit, OnChanges, OnDestroy {
   @Input() selected: boolean;
   @Output() selectedChange = new EventEmitter<boolean>();
 
-  constructor(private element: ElementRef, private zone: NgZone) {}
+  locale = 'de'; // caution: for the sake of simplicity we use language as locale here
+  private localeSubscription: Subscription;
 
-  ngOnInit(): void {}
+  constructor(
+    private changeDetectorRef: ChangeDetectorRef,
+    private element: ElementRef,
+    private translateService: TranslateService,
+    private zone: NgZone
+  ) {}
+
+  ngOnInit(): void {
+    this.localeSubscription = this.translateService.onLangChange.subscribe((langChangeEvent: LangChangeEvent) => {
+      this.locale = langChangeEvent.lang;
+      this.changeDetectorRef.detectChanges();
+    });
+  }
 
   ngOnChanges(changes: SimpleChanges): void {}
 
-  ngOnDestroy(): void {}
+  ngOnDestroy(): void {
+    if (this.localeSubscription) {
+      this.localeSubscription.unsubscribe();
+    }
+  }
 
   select(): void {
     this.selected = true;

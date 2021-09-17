@@ -1,7 +1,7 @@
 import { FlightCancellingModule } from './flight-booking/flight-cancelling/flight-cancelling.module';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NgModule } from '@angular/core';
+import { LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { PreloadAllModules, RouterModule } from '@angular/router';
 import { FlightLibModule } from '@flight-workspace/flight-lib';
@@ -27,6 +27,15 @@ import { OAuthModule } from 'angular-oauth2-oidc';
 
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { registerLocaleData } from '@angular/common';
+
+import localeDe from '@angular/common/locales/de';
+import localeDeAt from '@angular/common/locales/de-AT';
+import localeEn from '@angular/common/locales/en';
+
+registerLocaleData(localeDe); // de-DE
+registerLocaleData(localeDeAt); // de-AT
+registerLocaleData(localeEn); // en-US
 
 export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
   return new TranslateHttpLoader(http, '/assets/i18n/', '.json');
@@ -66,7 +75,7 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
     })
   ],
   declarations: [AppComponent, SidebarComponent, NavbarComponent, HomeComponent, BasketComponent, FlightLookaheadComponent],
-  providers: [],
+  providers: [{ provide: LOCALE_ID, useValue: 'de' }],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
