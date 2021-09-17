@@ -3,7 +3,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import {
   ChangeDetectionStrategy,
-  ChangeDetectorRef,
   Component,
   ElementRef,
   EventEmitter,
@@ -16,10 +15,6 @@ import {
   SimpleChanges
 } from '@angular/core';
 import { Flight } from '@flight-workspace/flight-lib';
-import { LangChangeEvent, TranslateService } from '@ngx-translate/core';
-import { select } from '@ngrx/store';
-import { Observable, Subscription } from 'rxjs';
-import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'flight-card',
@@ -29,36 +24,24 @@ import { map } from 'rxjs/operators';
 export class FlightCardComponent implements OnInit, OnChanges, OnDestroy {
   @Input() item: Flight;
   @Input() selected: boolean;
+  @Input() locale: string;
   @Output() selectedChange = new EventEmitter<boolean>();
 
-  locale = 'de'; // caution: for the sake of simplicity we use language as locale here
-  private localeSubscription: Subscription;
+  // langeChange$: Observable<string>;
 
-  langeChange$: Observable<string>;
-
-  constructor(
-    private changeDetectorRef: ChangeDetectorRef,
-    private element: ElementRef,
-    private translateService: TranslateService,
-    private zone: NgZone
-  ) {}
+  constructor(private element: ElementRef, private zone: NgZone) {}
 
   ngOnInit(): void {
     /*this.localeSubscription = this.translateService.onLangChange.subscribe((langChangeEvent: LangChangeEvent) => {
       this.locale = langChangeEvent.lang;
       this.changeDetectorRef.detectChanges();
     });*/
-
-    this.langeChange$ = this.translateService.onLangChange.pipe(map((langChangeEvent: LangChangeEvent) => langChangeEvent.lang));
+    // this.langeChange$ = this.translateService.onLangChange.pipe(map((langChangeEvent: LangChangeEvent) => langChangeEvent.lang));
   }
 
   ngOnChanges(changes: SimpleChanges): void {}
 
-  ngOnDestroy(): void {
-    if (this.localeSubscription) {
-      this.localeSubscription.unsubscribe();
-    }
-  }
+  ngOnDestroy(): void {}
 
   select(): void {
     this.selected = true;
