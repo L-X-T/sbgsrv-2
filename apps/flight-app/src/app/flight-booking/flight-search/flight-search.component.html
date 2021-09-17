@@ -1,44 +1,47 @@
 <div class="card">
 
   <div class="header">
-    <h2 class="title">Flight Search</h2>
+    <h2 class="title">{{ 'flight-booking.flight-search.flightSearch' | translate }}</h2>
   </div>
   <div class="content">
 
     <form>
-
       <div class="form-group">
-        <label>From:</label>
+        <label>{{ 'flight-booking.flight-search.from' | translate }}:</label>
         <input [(ngModel)]="from" name="from" class="form-control">
       </div>
+
       <div class="form-group">
-        <label>To:</label>
+        <label>{{ 'flight-booking.flight-search.to' | translate }}:</label>
         <input [(ngModel)]="to" name="to" class="form-control">
       </div>
+
       <div class="form-group">
         <label>
           <input [(ngModel)]="urgent" name="urgent" type="checkbox">
-          Urgent (When it's urgent it fails -- like in real life ;-))
-
+          {{ 'flight-booking.flight-search.urgent' | translate }}
         </label>
       </div>
 
       <div class="form-group">
         <button (click)="search()" [disabled]="!from || !to"
           class="btn btn-default">
-          Search
+          {{ 'flight-booking.flight-search.search' | translate }}
         </button>
 
         <ng-container *ngIf="flights$ | async as flights">
           <button *ngIf="flights.length > 0" class="btn btn-default"
                   (click)="delay()">
-            Delay 1st Flight
+            {{ 'flight-booking.flight-search.delayFirstFlight' | translate }}
           </button>
         </ng-container>
 
         <ng-container *ngIf="flights$ | async as flights">
-          <div *ngIf="flights?.length > 0">
-            {{flights.length}} flights found!
+          <div *ngIf="flights?.length === 1">
+            {{ 'flight-booking.flight-search.flightFound' | translate }}
+          </div>
+          <div *ngIf="flights?.length > 1">
+            {{ 'flight-booking.flight-search.flightsFound' | translate:{count: flights.length} }}
           </div>
         </ng-container>
 

@@ -1,0 +1,17 @@
+{
+  "flight-booking": {
+    "flight-search": {
+      "delayFirstFlight": "Delay 1st Flight",
+      "flightFound": "1 flight found.",
+      "flightsFound": "{{count}} flights found.",
+      "flightSearch": "Flight Search",
+      "from": "From",
+      "load": "Load",
+      "save": "Save",
+      "search": "Search",
+      "to": "To",
+      "urgent": "Urgent (When it's urgent it fails -- like in real life ;-))"
+    }
+  }
+}
+

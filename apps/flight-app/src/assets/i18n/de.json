@@ -1,0 +1,16 @@
+{
+  "flight-booking": {
+    "flight-search": {
+      "delayFirstFlight": "1. Flug verzögern",
+      "flightFound": "1 Flug gefunden.",
+      "flightsFound": "{{count}} Flüge gefunden.",
+      "flightSearch": "Flugsuche",
+      "from": "Von",
+      "load": "Laden",
+      "save": "Speichern",
+      "search": "Suchen",
+      "to": "Nach",
+      "urgent": "Eilig"
+    }
+  }
+}
