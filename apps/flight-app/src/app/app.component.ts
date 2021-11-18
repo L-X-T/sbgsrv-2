@@ -29,7 +29,7 @@ export class AppComponent {
     this.oauthService.loadDiscoveryDocumentAndTryLogin();
 
     this.translateService.addLangs(['en', 'de']);
-    this.translateService.setDefaultLang('de');
-    this.translateService.use('de');
+    this.translateService.setDefaultLang('en');
+    this.translateService.use('en');
   }
 }

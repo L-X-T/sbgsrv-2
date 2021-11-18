@@ -9,6 +9,7 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "nx workspace-lint && ng lint",
+    "demo": "nx e2e flight-app-e2e --watch",
     "e2e": "ng e2e",
     "json-server": "json-server db.json -p 3000",
     "copy:ce": "cpr dist/apps/external/main.js apps/dashboard/src/assets/external-dashboard-tile.bundle.js -o",
