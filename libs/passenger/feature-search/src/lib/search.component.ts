@@ -13,7 +13,7 @@ export class SearchComponent {
   passengerList$ = this.searchFacade.passengerList$;
   selectedPassenger: Passenger;
 
-  user = this.authService.user;
+  user = this.authService.userName;
 
   constructor(private authService: AuthLibService, private searchFacade: SearchFacade) {}
 
@@ -21,7 +21,7 @@ export class SearchComponent {
     this.searchFacade.load(this.name, this.firstname);
   }
 
-  toggleSelection(p: Passenger) {
+  toggleSelection(p: Passenger): void {
     this.selectedPassenger = this.selectedPassenger === p ? null : p;
   }
 }

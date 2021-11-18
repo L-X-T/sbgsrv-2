@@ -1,17 +1,22 @@
 import { Injectable } from '@angular/core';
+import { OAuthService } from 'angular-oauth2-oidc';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthLibService {
-  private userName: string | null = null;
+  constructor(private oauthService: OAuthService) {}
 
-  public get user(): string | null {
-    return this.userName;
+  get userName(): string {
+    const claims = this.oauthService.getIdentityClaims();
+    return claims ? claims['given_name'] : null;
   }
 
-  public login(userName: string, password: string): void {
-    // Authentication for **honest** users TM. (c) Manfred Steyer
-    this.userName = userName;
+  login(): void {
+    this.oauthService.initLoginFlow();
+  }
+
+  logout(): void {
+    this.oauthService.logOut();
   }
 }

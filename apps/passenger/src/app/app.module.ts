@@ -3,6 +3,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
+import { AuthLibService } from '@flight-workspace/shared/auth-lib';
+import { OAuthModule } from 'angular-oauth2-oidc';
 
 const routes: Routes = [
   {
@@ -18,7 +20,7 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, HttpClientModule, RouterModule.forRoot(routes)],
+  imports: [BrowserModule, HttpClientModule, RouterModule.forRoot(routes), OAuthModule.forRoot()],
   providers: [],
   bootstrap: [AppComponent]
 })

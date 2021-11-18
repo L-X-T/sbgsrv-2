@@ -32,6 +32,7 @@ module.exports = {
         '@angular/common': { singleton: true, strictVersion: true, requiredVersion: 'auto' },
         '@angular/common/http': { singleton: true, strictVersion: true, requiredVersion: 'auto' },
         '@angular/router': { singleton: true, strictVersion: true, requiredVersion: 'auto' },
+        'angular-oauth2-oidc': { singleton: true, strictVersion: true, requiredVersion: 'auto' },
 
         ...sharedMappings.getDescriptors()
       })
