@@ -2,11 +2,34 @@
   <div class="header">
     <h1 class="title">Airports</h1>
   </div>
-  <div class="content">
-    <div class="row">
-      <div class="col-lg-3" *ngFor="let airport of airports">
+
+  <!--<div class="row">
+    <div class="col-lg-3" *ngFor="let airport of airports">
+      {{ airport }}
+    </div>
+  </div>-->
+
+  <div *ngIf="(airports$ | async) as localAirports else isLoadingAirports" class="content">
+    <div *ngIf="localAirports.length > 0 else noAirportsFound" class="row">
+      <div class="col-lg-3" *ngFor="let airport of localAirports">
         {{ airport }}
       </div>
     </div>
   </div>
 </div>
+
+
+<ng-template #noAirportsFound>
+  <div class="row">
+    No airports found
+  </div>
+</ng-template>
+
+
+<ng-template #isLoadingAirports>
+  <div class="content">
+    <div class="row">
+      Loading airports ...
+    </div>
+  </div>
+</ng-template>
