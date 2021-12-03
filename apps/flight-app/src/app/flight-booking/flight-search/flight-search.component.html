@@ -42,6 +42,9 @@
           </div>
         </ng-container>
 
+        <div *ngIf="isLoadingFlight$ | async">
+          Loading flights ...
+        </div>
       </div>
     </form>
 
