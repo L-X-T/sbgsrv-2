@@ -467,6 +467,7 @@
             "polyfills": "apps/flight-app/src/polyfills.ts",
             "tsConfig": "apps/flight-app/tsconfig.app.json",
             "assets": [
+              "apps/flight-app/src/.htaccess",
               "apps/flight-app/src/favicon.ico",
               "apps/flight-app/src/assets"
             ],
