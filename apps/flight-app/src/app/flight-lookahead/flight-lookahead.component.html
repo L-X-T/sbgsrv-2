@@ -14,6 +14,10 @@
       <input [formControl]="toControl" class="form-control">
     </div>
 
+    <div class="control-group">
+      <button class="btn btn-click" (click)="refresh()">Refresh</button>
+    </div>
+
     <div [ngStyle]="{ 'background-color' : online ? 'green' : 'red' }">Online: {{ online }}</div>
 
     <div *ngIf="loading">Loading ...</div>
