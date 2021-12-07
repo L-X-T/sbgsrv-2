@@ -38,6 +38,7 @@ export class FlightLookaheadComponent implements OnInit {
     this.toControl = new FormControl();
     const toInput$ = this.toControl.valueChanges.pipe(
       startWith(''),
+      debounceTime(300),
       // filter((input) => input.length > 2),
       distinctUntilChanged()
     );
@@ -61,7 +62,7 @@ export class FlightLookaheadComponent implements OnInit {
     this.flights$ = combineLatest([fromInput$, toInput$, this.online$]).pipe(
       filter(([f, t, online]) => (f || t) && online),
       map(([from, to, _]) => [from, to]),
-      distinctUntilChanged((x: [from: string, to: string], y: [from: string, to: string]) => x[0] !== y[0] || x[1] !== y[1]),
+      distinctUntilChanged((x: [from: string, to: string], y: [from: string, to: string]) => x[0] === y[0] && x[1] === y[1]),
       tap(([from, to]) => (this.loading = true)),
       switchMap(([from, to]) => this.load(from, to)),
       tap((a) => (this.loading = false))
