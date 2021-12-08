@@ -5,6 +5,7 @@ import * as PassengerActions from './passenger.actions';
 
 export const passengersFeatureKey = 'passengers';
 
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface State extends EntityState<Passenger> {
   // additional entities state properties
 }

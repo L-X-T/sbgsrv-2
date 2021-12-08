@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { TestBed } from '@angular/core/testing';
 import { provideMockActions } from '@ngrx/effects/testing';
 import { Observable } from 'rxjs';
@@ -10,10 +11,7 @@ describe('FlightBookingEffects', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [
-        FlightBookingEffects,
-        provideMockActions(() => actions$)
-      ]
+      providers: [FlightBookingEffects, provideMockActions(() => actions$)]
     });
 
     effects = TestBed.inject(FlightBookingEffects);

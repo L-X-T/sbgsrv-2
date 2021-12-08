@@ -8,9 +8,8 @@ describe('FlightLookaheadComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ FlightLookaheadComponent ]
-    })
-    .compileComponents();
+      declarations: [FlightLookaheadComponent]
+    }).compileComponents();
   });
 
   beforeEach(() => {

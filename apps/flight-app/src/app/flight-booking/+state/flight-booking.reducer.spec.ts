@@ -1,4 +1,5 @@
-import { reducer, initialState } from './flight-booking.reducer';
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { initialState, reducer } from './flight-booking.reducer';
 
 describe('FlightBooking Reducer', () => {
   describe('an unknown action', () => {

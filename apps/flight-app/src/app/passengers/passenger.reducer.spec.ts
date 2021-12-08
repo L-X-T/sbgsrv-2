@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { reducer, initialState } from './passenger.reducer';
 
 describe('Passenger Reducer', () => {
